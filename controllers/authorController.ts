@@ -1,6 +1,7 @@
 import { Request, Response, Router } from "express";
-import Author from "../models/Author";
+import Author from "../models/author";
 import ContactData from "../models/contactData";
+import Article from "../models/article";
 
 const router: Router = Router();
 
@@ -37,7 +38,8 @@ router.get('/author', async (req: Request, res: Response) => {
     catch(error){
         res.status(500).json({message: error})
     }
-});
+})
+
 router.get('/author/:id', async (req: Request, res: Response) => {
     try{
         const data = await Author.findById(req.params.id).populate("contactData");

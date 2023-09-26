@@ -1,6 +1,7 @@
 import { Request, Response, Router } from "express";
 import Article from "../models/article";
 import Comment from "../models/comment";
+
 const router: Router = Router();
 
 router.post('/article', async (req: Request, res: Response) => {
@@ -107,7 +108,6 @@ router.get('/article/:id/comment', async (req: Request, res: Response) => {
         res.status(500).json({message: error})
     }
 })
-
 
 
 export default router;
